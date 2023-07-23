@@ -29,8 +29,8 @@ const Login = () => {
     const password = data.get('password');
     dispatch(authOperations.logIn({ email, password }));
     console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+      email,
+      password,
     });
   };
 
