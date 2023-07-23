@@ -1,16 +1,70 @@
-export const App = () => {
+import React, { useEffect } from 'react';
+import RegisterForm from './Register/RegisterForm';
+import Login from './Login/Login';
+import { useDispatch } from 'react-redux';
+import authOperations from 'redux/auth/auth-operations';
+import { Routes, Route } from 'react-router-dom';
+import Container from './Container/Container';
+import AppBar from './AppBar/AppBar';
+import PhonebookView from 'pages/PhonebookView';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoutes';
+import HomePage from 'pages/HomePage';
+import { Navigate } from 'react-router-dom';
+
+export default function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Container>
+      <AppBar />
+
+      <Routes>
+        <Route
+          exact
+          path="/"
+          restricted
+          element={
+            <PublicRoute>
+              <HomePage />
+            </PublicRoute>
+          }
+        />
+
+        <Route
+          path="/phonebook"
+          element={
+            <PrivateRoute>
+              <PhonebookView />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          exact
+          path="/login"
+          restricted
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
+        <Route
+          exact
+          path="/register"
+          restricted
+          element={
+            <PublicRoute>
+              <RegisterForm />
+            </PublicRoute>
+          }
+        />
+        <Route exact path="/*" restricted element={<Navigate to="/" />} />
+      </Routes>
+    </Container>
   );
-};
+}
