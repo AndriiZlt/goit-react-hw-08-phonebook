@@ -26,7 +26,7 @@ export default function App() {
       <Routes>
         <Route
           exact
-          path="goit-react-hw-08-phonebook//"
+          path="/"
           restricted
           element={
             <PublicRoute>
@@ -36,7 +36,7 @@ export default function App() {
         />
 
         <Route
-          path="goit-react-hw-08-phonebook//phonebook"
+          path="/phonebook"
           element={
             <PrivateRoute>
               <PhonebookView />
@@ -45,7 +45,7 @@ export default function App() {
         />
         <Route
           exact
-          path="goit-react-hw-08-phonebook//login"
+          path="/login"
           restricted
           element={
             <PublicRoute>
@@ -55,7 +55,7 @@ export default function App() {
         />
         <Route
           exact
-          path="goit-react-hw-08-phonebook//register"
+          path="/register"
           restricted
           element={
             <PublicRoute>
@@ -63,12 +63,7 @@ export default function App() {
             </PublicRoute>
           }
         />
-        <Route
-          exact
-          path="/*"
-          restricted
-          element={<Navigate to="goit-react-hw-08-phonebook/" />}
-        />
+        <Route exact path="/*" restricted element={<Navigate to="/" />} />
       </Routes>
     </Container>
   );
