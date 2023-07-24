@@ -9,7 +9,7 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    isAuth && navigate('/goit-react-hw-08-phonebook/phonebook');
+    isAuth && navigate('/phonebook');
   }, [isAuth, navigate]);
 
   return <Login />;

@@ -4,11 +4,7 @@ import { useSelector } from 'react-redux';
 
 function PublicRoute({ children, restricted = false, ...routeProps }) {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  return !isLoggedIn ? (
-    children
-  ) : (
-    <Navigate to="/goit-react-hw-08-phonebook/phonebook" />
-  );
+  return !isLoggedIn ? children : <Navigate to="/phonebook" />;
 }
 
 export default PublicRoute;

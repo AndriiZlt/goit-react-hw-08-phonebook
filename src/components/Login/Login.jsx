@@ -95,9 +95,7 @@ const Login = () => {
                 <Link
                   to="/register"
                   variant="body2"
-                  onClick={() =>
-                    navigate('goit-react-hw-08-phonebook/register')
-                  }
+                  onClick={() => navigate('/register')}
                 >
                   {"Don't have an account? Sign Up"}
                 </Link>
