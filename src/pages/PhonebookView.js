@@ -22,6 +22,7 @@ const PhonebookView = () => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
+          justifyContent: 'center',
           paddingTop: 6,
           paddingBottom: 10,
         }}

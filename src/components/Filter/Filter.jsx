@@ -23,6 +23,7 @@ export default function Filter() {
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
+          justifyContent: 'center',
         }}
         noValidate
         autoComplete="off"
