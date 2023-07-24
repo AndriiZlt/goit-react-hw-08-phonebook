@@ -18,6 +18,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import Container from '@mui/material/Container';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Typography from '@mui/material/Typography';
 
 const ContactList = props => {
   token.set(useSelector(state => state.auth.token));
@@ -45,7 +46,11 @@ const ContactList = props => {
           alignItems: 'center',
         }}
       >
-        {filteredContacts.length > 0 ? (
+        {contacts.length === 0 ? (
+          <Typography component="h3" variant="h6">
+            No contacts
+          </Typography>
+        ) : filteredContacts.length > 0 ? (
           <List>
             {filteredContacts.map(({ id, name, number }) => (
               <ListItem disablePadding key={shortid.generate()}>
@@ -66,7 +71,9 @@ const ContactList = props => {
             ))}
           </List>
         ) : (
-          <>No matches</>
+          <Typography component="h3" variant="h6">
+            No matches
+          </Typography>
         )}
       </Box>
     </Container>
