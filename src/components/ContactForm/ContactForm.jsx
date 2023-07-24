@@ -45,7 +45,11 @@ export default function ContactForm() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
+      <Container
+        component="main"
+        maxWidth="xs"
+        style={{ marginLeft: 30, marginRight: 30 }}
+      >
         <CssBaseline />
         <Box
           sx={{
@@ -65,7 +69,9 @@ export default function ContactForm() {
             component="form"
             onSubmit={handleSubmit}
             noValidate
-            sx={{ mt: 1 }}
+            sx={{
+              mt: 1,
+            }}
           >
             <TextField
               margin="normal"
