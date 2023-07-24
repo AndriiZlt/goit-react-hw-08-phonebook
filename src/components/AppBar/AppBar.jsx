@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import authOperations from 'redux/auth/auth-operations';
 import authSelectors from 'redux/auth/auth-selectors';
 import { clearContacts } from 'redux/phonebook/phonebook-slice';
-import background from '../../avatar.jpg';
+import background from '../../images/avatar.jpg';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AppBar from '@mui/material/AppBar';
