@@ -34,7 +34,13 @@ const ContactList = props => {
   });
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container
+      component="main"
+      maxWidth="xs"
+      style={{
+        padding: 0,
+      }}
+    >
       <Box
         sx={{
           width: '100%',

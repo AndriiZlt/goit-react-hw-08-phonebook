@@ -1,14 +1,17 @@
 import ContactForm from '../components/ContactForm/ContactForm';
 import ContactList from '../components/Contacts/Contacts';
 import Filter from 'components/Filter/Filter';
+import Container from '@mui/material/Container';
 
 const PhonebookView = () => {
   return (
-    <div>
+    <Container component="main" style={{ display: 'flex' }}>
       <ContactForm />
-      <Filter />
-      <ContactList />
-    </div>
+      <Container>
+        <Filter />
+        <ContactList />
+      </Container>
+    </Container>
   );
 };
 export default PhonebookView;
