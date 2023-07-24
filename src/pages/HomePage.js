@@ -9,7 +9,7 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    isAuth && navigate('/phonebook');
+    isAuth && navigate('/');
   }, [isAuth, navigate]);
 
   return <Login />;
