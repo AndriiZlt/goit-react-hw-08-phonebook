@@ -3,7 +3,7 @@ import ContactList from '../components/Contacts/Contacts';
 import Filter from 'components/Filter/Filter';
 import Container from '@mui/material/Container';
 import css from './PhonebookView.module.css';
-import { Typography } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 const PhonebookView = () => {
