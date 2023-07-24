@@ -7,8 +7,8 @@ import { Routes, Route } from 'react-router-dom';
 import Container from './Container/Container';
 import AppBar from './AppBar/AppBar';
 import PhonebookView from 'pages/PhonebookView';
-import PrivateRoute from './PrivateRoute';
-import PublicRoute from './PublicRoutes';
+import PrivateRoute from '../routes/PrivateRoute';
+import PublicRoute from '../routes/PublicRoutes';
 import HomePage from 'pages/HomePage';
 import { Navigate } from 'react-router-dom';
 
@@ -63,7 +63,7 @@ export default function App() {
             </PublicRoute>
           }
         />
-        <Route exact path="/*" restricted element={<Navigate to="/" />} />
+        <Route exact path="/*" element={<Navigate to="/" />} />
       </Routes>
     </Container>
   );

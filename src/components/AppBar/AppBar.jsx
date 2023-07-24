@@ -1,34 +1,35 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import authOperations from 'redux/auth/auth-operations';
+import authSelectors from 'redux/auth/auth-selectors';
+import { clearContacts } from 'redux/phonebook/phonebook-slice';
+import background from '../../avatar.jpg';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import authSelectors from 'redux/auth/auth-selectors';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import authOperations from 'redux/auth/auth-operations';
-import { clearContacts } from 'redux/phonebook/phonebook-slice';
-import Button from '@mui/material/Button';
-import background from '../../avatar.jpg';
 
 const MyAppBar = ({ children }) => {
   const dispatch = useDispatch();
-  const email = useSelector(authSelectors.getUserEmail);
-  const [setAnchorElUser] = React.useState(null);
+  const userName = useSelector(authSelectors.getUserName);
+  // const [setAnchorElUser] = React.useState(null);
 
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   const [auth] = React.useState(true);
-  const [setAnchorEl] = React.useState(null);
+  // const [setAnchorEl] = React.useState(null);
 
   const handleMenu = event => {
-    setAnchorEl(event.currentTarget);
+    // setAnchorEl(event.currentTarget);
   };
 
   const handleOpenUserMenu = event => {
-    setAnchorElUser(event.currentTarget);
+    // setAnchorElUser(event.currentTarget);
   };
 
   return (
@@ -50,8 +51,8 @@ const MyAppBar = ({ children }) => {
                       alignItems: 'center',
                     }}
                   >
-                    <p style={{ fontFamily: 'Roboto', marginRight: 10 }}>
-                      {email}
+                    <p style={{ fontFamily: 'Roboto', marginRight: 15 }}>
+                      {userName}
                     </p>
 
                     <IconButton
@@ -71,26 +72,18 @@ const MyAppBar = ({ children }) => {
                         }}
                       ></div>
                     </IconButton>
-                    <Button
-                      variant="outlined"
-                      style={{
-                        height: 30,
-                        backgroundColor: 'white',
-                        // color: '#1976d2',
-                        paddingTop: 9,
-                      }}
-                      type="button"
+                    <IconButton
                       onClick={() => {
                         dispatch(authOperations.logOut());
                         dispatch(clearContacts());
                       }}
                     >
-                      Logout
-                    </Button>
+                      <LogoutIcon sx={{ color: 'white' }} />
+                    </IconButton>
                   </div>
                 ) : (
-                  <div>
-                    Please Log In
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <LoginIcon />
                     <IconButton
                       size="large"
                       aria-label="account of current user"
