@@ -14,7 +14,6 @@ import { Navigate } from 'react-router-dom';
 
 export default function App() {
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
@@ -26,7 +25,7 @@ export default function App() {
       <Routes>
         <Route
           exact
-          path="/"
+          path="/goit-react-hw-08-phonebook/"
           restricted
           element={
             <PublicRoute>
@@ -36,7 +35,7 @@ export default function App() {
         />
 
         <Route
-          path="/phonebook"
+          path="/goit-react-hw-08-phonebook/phonebook"
           element={
             <PrivateRoute>
               <PhonebookView />
@@ -45,7 +44,7 @@ export default function App() {
         />
         <Route
           exact
-          path="/login"
+          path="/goit-react-hw-08-phonebook/login"
           restricted
           element={
             <PublicRoute>
@@ -55,7 +54,7 @@ export default function App() {
         />
         <Route
           exact
-          path="/register"
+          path="/goit-react-hw-08-phonebook/register"
           restricted
           element={
             <PublicRoute>
@@ -63,7 +62,11 @@ export default function App() {
             </PublicRoute>
           }
         />
-        <Route exact path="/*" element={<Navigate to="/" />} />
+        <Route
+          exact
+          path="/*"
+          element={<Navigate to="/goit-react-hw-08-phonebook/" />}
+        />
       </Routes>
     </Container>
   );

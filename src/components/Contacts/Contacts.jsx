@@ -1,3 +1,4 @@
+import css from './Contacts.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchContacts,
@@ -16,9 +17,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-const ContactList = () => {
+const ContactList = props => {
   token.set(useSelector(state => state.auth.token));
   const contacts = useSelector(contactsSelectors.contacts);
   const filter = useSelector(contactsSelectors.filter);
@@ -49,19 +50,18 @@ const ContactList = () => {
             {filteredContacts.map(({ id, name, number }) => (
               <ListItem disablePadding key={shortid.generate()}>
                 <ListItemButton>
-                  <ListItemIcon>
+                  <ListItemIcon style={{ marginRight: 10 }}>
                     <ContactPhoneIcon style={{ marginRight: 10 }} />
                     {name} {number}
                   </ListItemIcon>
+                  <DeleteIcon
+                    className={css.deleteIcon}
+                    // style={{ height: 20, width: 20 }}
+                    onClick={() => dispatch(removeContact(id))}
+                    color="primary"
+                  />
                   <ListItemText primary="" />
                 </ListItemButton>
-                <Button
-                  style={{ height: 30, width: 40 }}
-                  variant="text"
-                  onClick={() => dispatch(removeContact(id))}
-                >
-                  clear
-                </Button>
               </ListItem>
             ))}
           </List>
