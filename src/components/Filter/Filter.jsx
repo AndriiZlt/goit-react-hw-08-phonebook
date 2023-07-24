@@ -18,7 +18,7 @@ export default function Filter() {
         component="form"
         sx={{
           '& > :not(style)': { m: 1, width: '25ch' },
-          marginTop: 8,
+          marginTop: 5,
           marginBottom: 5,
           display: 'flex',
           flexDirection: 'row',
