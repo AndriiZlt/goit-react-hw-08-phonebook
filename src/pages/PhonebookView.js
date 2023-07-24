@@ -16,13 +16,16 @@ const PhonebookView = () => {
       <ContactForm />
       <Box
         sx={{
+          maxWidth: 600,
+          width: 515,
           marginTop: 8,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          padding: 0,
-          paddingTop: 5,
+          paddingTop: 6,
+          paddingBottom: 10,
         }}
+        className={css.box}
       >
         <Typography component="h1" variant="h5">
           Contacts list

@@ -6,3 +6,7 @@
 .deleteIcon:hover {
   fill: red;
 }
+
+.container {
+  padding: 0;
+}
